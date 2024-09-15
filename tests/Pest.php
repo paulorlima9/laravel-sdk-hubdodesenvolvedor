@@ -1,0 +1,5 @@
+<?php
+
+use PauloRLima\HubDoDesenvolvedor\Tests\TestCase;
+
+uses(TestCase::class)->in(__DIR__);
