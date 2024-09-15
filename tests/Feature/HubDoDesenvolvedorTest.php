@@ -3,8 +3,8 @@
 namespace PauloRLima\HubDoDesenvolvedor\Tests\Feature;
 
 use Exception;
-use PauloRLima\HubDoDesenvolvedor\Tests\TestCase;
 use PauloRLima\HubDoDesenvolvedor\HubDoDesenvolvedor;
+use PauloRLima\HubDoDesenvolvedor\Tests\TestCase;
 
 class HubDoDesenvolvedorTest extends TestCase
 {
@@ -34,7 +34,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertArrayHasKey('result', $result);
             $this->assertEquals($cnpj, preg_replace('/[^0-9]/', '', $result['result']['numero_de_inscricao']));
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getCNPJ: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getCNPJ: '.$e->getMessage());
         }
     }
 
@@ -49,7 +49,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertTrue($result['status']);
             $this->assertEquals('OK', $result['return']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getCNPJModalidade2: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getCNPJModalidade2: '.$e->getMessage());
         }
     }
 
@@ -67,7 +67,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertArrayHasKey('last_update', $result['result']);
             $this->assertNotEmpty($result['result']['last_update']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getCNPJLastUpdate: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getCNPJLastUpdate: '.$e->getMessage());
         }
     }
 
@@ -83,7 +83,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertEquals('OK', $result['return']);
             // Dependendo da resposta, você pode verificar os dados específicos
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getCNPJInscricoesEstaduais: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getCNPJInscricoesEstaduais: '.$e->getMessage());
         }
     }
 
@@ -99,7 +99,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertEquals('OK', $result['return']);
             // Verifique os dados retornados conforme necessário
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getSimples: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getSimples: '.$e->getMessage());
         }
     }
 
@@ -114,7 +114,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertTrue($result['status']);
             $this->assertEquals('OK', $result['return']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getSimplesModalidade2: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getSimplesModalidade2: '.$e->getMessage());
         }
     }
 
@@ -129,7 +129,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertTrue($result['status']);
             $this->assertEquals('OK', $result['return']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getSimplesLastUpdate: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getSimplesLastUpdate: '.$e->getMessage());
         }
     }
 
@@ -146,7 +146,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertEquals('01001-000', $result['result']['cep']);
             $this->assertEquals('São Paulo', $result['result']['localidade']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getCEP: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getCEP: '.$e->getMessage());
         }
     }
 
@@ -167,7 +167,7 @@ class HubDoDesenvolvedorTest extends TestCase
             if ($e->getMessage() === 'CPF Inválido.') {
                 $this->markTestSkipped('CPF inválido ou não encontrado na base de dados.');
             } else {
-                $this->fail('Exceção lançada durante getCPF: ' . $e->getMessage());
+                $this->fail('Exceção lançada durante getCPF: '.$e->getMessage());
             }
         }
     }
@@ -187,7 +187,7 @@ class HubDoDesenvolvedorTest extends TestCase
             if ($e->getMessage() === 'CPF Inválido.') {
                 $this->markTestSkipped('CPF inválido ou não encontrado na base de dados.');
             } else {
-                $this->fail('Exceção lançada durante getNomeDataNascimentoCPF: ' . $e->getMessage());
+                $this->fail('Exceção lançada durante getNomeDataNascimentoCPF: '.$e->getMessage());
             }
         }
     }
@@ -219,8 +219,8 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertArrayHasKey('valor_total', $result['result']);
             $this->assertNotEmpty($result['result']['valor_total']);
         } catch (Exception $e) {
-            echo 'Mensagem de erro: ' . $e->getMessage();
-            $this->fail('Exceção lançada durante getCorreiosFrete: ' . $e->getMessage());
+            echo 'Mensagem de erro: '.$e->getMessage();
+            $this->fail('Exceção lançada durante getCorreiosFrete: '.$e->getMessage());
         }
     }
 
@@ -237,7 +237,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertEquals('São Paulo', $result['result']['nome']);
             $this->assertEquals('São Paulo', $result['result']['estado']);
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getIBGE: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getIBGE: '.$e->getMessage());
         }
     }
 
@@ -252,7 +252,7 @@ class HubDoDesenvolvedorTest extends TestCase
             $this->assertArrayHasKey('result', $result);
             // Verifique os dados de saldo conforme necessário
         } catch (Exception $e) {
-            $this->fail('Exceção lançada durante getSaldo: ' . $e->getMessage());
+            $this->fail('Exceção lançada durante getSaldo: '.$e->getMessage());
         }
     }
 
