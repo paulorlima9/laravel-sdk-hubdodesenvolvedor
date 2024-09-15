@@ -1,7 +1,7 @@
 # hubdodesenvolvedor
 
 [![Última Versão no Packagist](https://img.shields.io/packagist/v/paulorlima9/laravel-sdk-hubdodesenvolvedor.svg?style=flat-square)](https://packagist.org/packages/paulorlima9/laravel-sdk-hubdodesenvolvedor)
-[![Status dos Testes no GitHub](https://img.shields.io/github/actions/workflow/status/paulorlima9/hubdodesenvolvedor/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/paulorlima9/laravel-sdk-hubdodesenvolvedor/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![Status dos Testes no GitHub](https://img.shields.io/github/actions/workflow/status/paulorlima9/laravel-sdk-hubdodesenvolvedor/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/paulorlima9/laravel-sdk-hubdodesenvolvedor/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Status do Código no GitHub](https://img.shields.io/github/actions/workflow/status/paulorlima9/laravel-sdk-hubdodesenvolvedor/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/paulorlima9/laravel-sdk-hubdodesenvolvedor/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total de Downloads](https://img.shields.io/packagist/dt/paulorlima9/laravel-sdk-hubdodesenvolvedor.svg?style=flat-square)](https://packagist.org/packages/paulorlima9/laravel-sdk-hubdodesenvolvedor)
 
@@ -12,7 +12,7 @@ Pacote Laravel para integração com a API do [Hub do Desenvolvedor](https://www
 Você pode instalar o pacote via Composer:
 
 ```bash
-composer require paulorlima9/hubdodesenvolvedor
+composer require paulorlima9/laravel-sdk-hubdodesenvolvedor
 ```
 
 ### Publicação da Configuração
