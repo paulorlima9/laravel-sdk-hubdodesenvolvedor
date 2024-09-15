@@ -544,9 +544,10 @@ class HubDoDesenvolvedor
     /**
      * Método genérico para realizar requisições.
      *
-     * @param string $method
-     * @param string $endpoint
+     * @param  string  $method
+     * @param  string  $endpoint
      * @return mixed
+     *
      * @throws Exception
      */
     protected function makeRequest($method, $endpoint)
@@ -561,8 +562,8 @@ class HubDoDesenvolvedor
                 // Decodifica a resposta JSON
                 $data = json_decode($body, true);
 
-                if (!is_array($data)) {
-                    throw new Exception('Resposta inválida da API (não é JSON): ' . $body);
+                if (! is_array($data)) {
+                    throw new Exception('Resposta inválida da API (não é JSON): '.$body);
                 }
 
                 if (isset($data['return']) && $data['return'] === 'NOK') {
@@ -572,15 +573,15 @@ class HubDoDesenvolvedor
                 return $data; // Retorna a resposta JSON decodificada como array
             } elseif ($this->tipoRetorno === 'xml') {
                 // Converte a string XML em um objeto SimpleXMLElement
-                $xml = simplexml_load_string($body, "SimpleXMLElement", LIBXML_NOCDATA);
+                $xml = simplexml_load_string($body, 'SimpleXMLElement', LIBXML_NOCDATA);
 
                 if ($xml === false) {
-                    throw new Exception('Resposta inválida da API (não é XML): ' . $body);
+                    throw new Exception('Resposta inválida da API (não é XML): '.$body);
                 }
 
                 // Verifica o status da resposta no XML
-                if (isset($xml->return) && (string)$xml->return === 'NOK') {
-                    $message = isset($xml->message) ? (string)$xml->message : 'Erro desconhecido na API';
+                if (isset($xml->return) && (string) $xml->return === 'NOK') {
+                    $message = isset($xml->message) ? (string) $xml->message : 'Erro desconhecido na API';
                     throw new Exception($message);
                 }
 
