@@ -9,16 +9,20 @@ use GuzzleHttp\Exception\RequestException;
 class HubDoDesenvolvedor
 {
     protected $client;
+
     protected $baseUrl = 'https://ws.hubdodesenvolvedor.com.br/v2/';
+
     protected $token;
+
     protected $timeout;
+
     protected $tipoRetorno;
 
     /**
      * Construtor da classe, inicializa o cliente Guzzle e define o token e timeout.
      *
-     * @param string $token
-     * @param int $timeout
+     * @param  string  $token
+     * @param  int  $timeout
      */
     public function __construct($token, $timeout = 600)
     {
@@ -35,7 +39,7 @@ class HubDoDesenvolvedor
     /**
      * Valida um CNPJ.
      *
-     * @param string $cnpj
+     * @param  string  $cnpj
      * @return bool
      */
     protected function validateCNPJ($cnpj)
@@ -87,7 +91,7 @@ class HubDoDesenvolvedor
     /**
      * Valida um CPF.
      *
-     * @param string $cpf
+     * @param  string  $cpf
      * @return bool
      */
     protected function validateCPF($cpf)
@@ -125,7 +129,7 @@ class HubDoDesenvolvedor
     /**
      * Valida um CEP.
      *
-     * @param string $cep
+     * @param  string  $cep
      * @return bool
      */
     protected function validateCEP($cep)
@@ -138,7 +142,7 @@ class HubDoDesenvolvedor
     /**
      * Valida uma data no formato DD/MM/AAAA.
      *
-     * @param string $date
+     * @param  string  $date
      * @return bool
      */
     protected function validateDate($date)
@@ -151,14 +155,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta CNPJ modalidade 1.
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno ('json', 'xml', etc.)
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno  ('json', 'xml', etc.)
      * @return array
+     *
      * @throws Exception
      */
     public function getCNPJ($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -170,14 +175,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta CNPJ modalidade 2 (ignora cache).
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCNPJModalidade2($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -189,14 +195,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta última atualização do CNPJ.
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCNPJLastUpdate($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -208,15 +215,16 @@ class HubDoDesenvolvedor
     /**
      * Consulta Inscrições Estaduais do CNPJ.
      *
-     * @param string $cnpj
-     * @param int $ie (1 para tempo real, 3 para cache)
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  int  $ie  (1 para tempo real, 3 para cache)
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCNPJInscricoesEstaduais($cnpj, $ie = 3)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -228,14 +236,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta Simples Nacional modalidade 1.
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getSimples($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -247,14 +256,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta Simples Nacional modalidade 2 (ignora cache).
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getSimplesModalidade2($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -266,14 +276,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta última atualização do Simples Nacional.
      *
-     * @param string $cnpj
-     * @param string $tipoRetorno
+     * @param  string  $cnpj
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getSimplesLastUpdate($cnpj)
     {
-        if (!$this->validateCNPJ($cnpj)) {
+        if (! $this->validateCNPJ($cnpj)) {
             throw new Exception('CNPJ inválido.');
         }
 
@@ -285,14 +296,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta CEP.
      *
-     * @param string $cep
-     * @param string $tipoRetorno
+     * @param  string  $cep
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCEP($cep)
     {
-        if (!$this->validateCEP($cep)) {
+        if (! $this->validateCEP($cep)) {
             throw new Exception('CEP inválido.');
         }
 
@@ -304,9 +316,10 @@ class HubDoDesenvolvedor
     /**
      * Consulta CEP3.
      *
-     * @param string $cep
-     * @param string $tipoRetorno
+     * @param  string  $cep
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCEP3($cep)
@@ -317,19 +330,20 @@ class HubDoDesenvolvedor
     /**
      * Consulta CPF modalidade 1.
      *
-     * @param string $cpf
-     * @param string $dataNascimento (DD/MM/AAAA)
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $dataNascimento  (DD/MM/AAAA)
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCPF($cpf, $dataNascimento)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
-        if (!$this->validateDate($dataNascimento)) {
+        if (! $this->validateDate($dataNascimento)) {
             throw new Exception('Data de nascimento inválida.');
         }
 
@@ -341,19 +355,20 @@ class HubDoDesenvolvedor
     /**
      * Consulta CPF modalidade 2 (ignora cache).
      *
-     * @param string $cpf
-     * @param string $dataNascimento
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $dataNascimento
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCPFModalidade2($cpf, $dataNascimento)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
-        if (!$this->validateDate($dataNascimento)) {
+        if (! $this->validateDate($dataNascimento)) {
             throw new Exception('Data de nascimento inválida.');
         }
 
@@ -365,19 +380,20 @@ class HubDoDesenvolvedor
     /**
      * Consulta última atualização do CPF.
      *
-     * @param string $cpf
-     * @param string $dataNascimento
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $dataNascimento
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCPFLastUpdate($cpf, $dataNascimento)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
-        if (!$this->validateDate($dataNascimento)) {
+        if (! $this->validateDate($dataNascimento)) {
             throw new Exception('Data de nascimento inválida.');
         }
 
@@ -389,14 +405,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta Nome e Data de Nascimento pelo CPF modalidade 1.
      *
-     * @param string $cpf
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getNomeDataNascimentoCPF($cpf)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
@@ -408,14 +425,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta Nome e Data de Nascimento pelo CPF modalidade 2 (ignora cache).
      *
-     * @param string $cpf
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getNomeDataNascimentoCPFModalidade2($cpf)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
@@ -427,14 +445,15 @@ class HubDoDesenvolvedor
     /**
      * Consulta última atualização do Nome e Data de Nascimento pelo CPF.
      *
-     * @param string $cpf
-     * @param string $tipoRetorno
+     * @param  string  $cpf
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getNomeDataNascimentoCPFLastUpdate($cpf)
     {
-        if (!$this->validateCPF($cpf)) {
+        if (! $this->validateCPF($cpf)) {
             throw new Exception('CPF inválido.');
         }
 
@@ -446,9 +465,9 @@ class HubDoDesenvolvedor
     /**
      * Consulta frete nos Correios.
      *
-     * @param array $params
-     * @param string $tipoRetorno
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getCorreiosFrete(array $params)
@@ -466,7 +485,7 @@ class HubDoDesenvolvedor
         ];
 
         foreach ($requiredParams as $param) {
-            if (!isset($params[$param])) {
+            if (! isset($params[$param])) {
                 throw new Exception("O parâmetro {$param} é obrigatório.");
             }
         }
@@ -488,18 +507,18 @@ class HubDoDesenvolvedor
         return $this->makeRequest('GET', $endpoint);
     }
 
-
     /**
      * Consulta IBGE.
      *
-     * @param string $codigoCidade
-     * @param string $tipoRetorno
+     * @param  string  $codigoCidade
+     * @param  string  $tipoRetorno
      * @return array
+     *
      * @throws Exception
      */
     public function getIBGE($codigoCidade)
     {
-        if (!is_numeric($codigoCidade)) {
+        if (! is_numeric($codigoCidade)) {
             throw new Exception('Código da cidade inválido.');
         }
 
@@ -512,6 +531,7 @@ class HubDoDesenvolvedor
      * Consulta saldo.
      *
      * @return array
+     *
      * @throws Exception
      */
     public function getSaldo()
@@ -524,9 +544,10 @@ class HubDoDesenvolvedor
     /**
      * Método genérico para realizar requisições.
      *
-     * @param string $method
-     * @param string $endpoint
+     * @param  string  $method
+     * @param  string  $endpoint
      * @return array
+     *
      * @throws Exception
      */
     protected function makeRequest($method, $endpoint)
@@ -538,8 +559,8 @@ class HubDoDesenvolvedor
 
             $data = json_decode($body, true);
 
-            if (!is_array($data)) {
-                throw new Exception('Resposta inválida da API: ' . $body);
+            if (! is_array($data)) {
+                throw new Exception('Resposta inválida da API: '.$body);
             }
 
             if (isset($data['return']) && $data['return'] === 'NOK') {
@@ -550,9 +571,9 @@ class HubDoDesenvolvedor
         } catch (RequestException $e) {
             $message = $e->hasResponse()
                 ? $e
-                ->getResponse()
-                ->getBody()
-                ->getContents()
+                    ->getResponse()
+                    ->getBody()
+                    ->getContents()
                 : $e->getMessage();
 
             throw new Exception("Erro na requisição: {$message}");

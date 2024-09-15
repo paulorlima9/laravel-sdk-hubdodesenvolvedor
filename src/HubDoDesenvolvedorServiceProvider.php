@@ -18,6 +18,7 @@ class HubDoDesenvolvedorServiceProvider extends PackageServiceProvider
     {
         $this->app->singleton(HubDoDesenvolvedor::class, function ($app) {
             $config = config('hubdodesenvolvedor');
+
             return new HubDoDesenvolvedor($config['token'], $config['timeout']);
         });
     }
